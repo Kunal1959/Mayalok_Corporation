@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Corporation Behind Clarity | Mayalok Corporation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A111D;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --red: #E33131;
+            --yellow: #FFC107;
+            --green: #4CAF50;
+            --gray: #8C8C8C;
+            --light-navy: #1A2435;
+            --blueprint: #1E3A8A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 17, 29, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--gold);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.7;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+        }
+
+        .spotlight {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: moveSpotlight 20s infinite linear;
+            z-index: -1;
+        }
+
+        @keyframes moveSpotlight {
+            0% {
+                transform: translate(-30%, -30%);
+            }
+
+            25% {
+                transform: translate(30%, -30%);
+            }
+
+            50% {
+                transform: translate(30%, 30%);
+            }
+
+            75% {
+                transform: translate(-30%, 30%);
+            }
+
+            100% {
+                transform: translate(-30%, -30%);
+            }
+        }
+
+        .about-hero-content {
+            max-width: 900px;
+            z-index: 1;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Purpose Section */
+        .purpose-section {
+            padding: 6rem 5%;
+            position: relative;
+            text-align: center;
+        }
+
+        .purpose-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .purpose-statement {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            line-height: 1.3;
+            color: var(--gold);
+            position: relative;
+            display: inline-block;
+        }
+
+        .purpose-statement::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .purpose-description {
+            color: var(--gray);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 4rem;
+        }
+
+        /* How We Operate Section */
+        .operation-section {
+            padding: 6rem 5%;
+            background: var(--light-navy);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .operation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .operation-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 2.5rem;
+            position: relative;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .operation-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .operation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 8px 8px 0 0;
+        }
+
+        .operation-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--gold);
+        }
+
+        .operation-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .operation-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .value-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 5%;
+            background: var(--light-navy);
+            position: relative;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            text-align: center;
+            position: relative;
+        }
+
+        .member-portrait {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .portrait-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gold);
+        }
+
+        .cinematic-lighting {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            mix-blend-mode: overlay;
+        }
+
+        .member-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-title {
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-bio {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .about-cta {
+            padding: 6rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .blueprint-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image:
+                linear-gradient(rgba(30, 58, 138, 0.5) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 58, 138, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-logo {
+            flex: 1;
+        }
+
+        .footer-logo .logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo p {
+            color: var(--gray);
+            max-width: 300px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .footer-links-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links-column ul {
+            list-style: none;
+        }
+
+        .footer-links-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links-column ul li a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links-column ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .operation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+
+            .purpose-statement {
+                font-size: 2rem;
+            }
+
+            .values-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .purpose-statement {
+                font-size: 1.8rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon">MC</div>
+            <div class="logo-text">Mayalok Corporation</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/service.html">Services</a></li>
+                <li><a href="/process.html">The Process</a></li>
+                <li><a href="/case_study.html">Case Studies</a></li>
+                <li><a href="#" style="color: var(--gold);">About Us</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="nav-cta">Schedule Briefing</button>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-bg"></div>
+        <div class="spotlight"></div>
+        <div class="about-hero-content">
+            <h1>The Corporation Behind Clarity</h1>
+            <p>Uncovering regulatory risks to protect high-value assets through precision intelligence</p>
+        </div>
+    </section>
+
+    <!-- Purpose Section -->
+    <section class="purpose-section">
+        <div class="purpose-content">
+            <div class="purpose-statement">We stop wealth destruction before it happens</div>
+            <p class="purpose-description">Mayalok Corporation was founded on a singular principle: regulatory changes
+                shouldn't destroy asset value without warning. We provide the intelligence needed to anticipate,
+                navigate, and capitalize on policy shifts that impact physical assets.</p>
+        </div>
+    </section>
+
+    <!-- How We Operate Section -->
+    <section class="operation-section">
+        <div class="section-title">
+            <h2>How We Operate</h2>
+            <p>Our methodology combines regulatory foresight with spatial intelligence</p>
+        </div>
+
+        <div class="operation-grid">
+            <div class="operation-card">
+                <div class="operation-icon">
+                    <i class="fas fa-city"></i>
+                </div>
+                <h3>Alignment with Urban Planning</h3>
+                <p>We maintain constant alignment with municipal development plans, infrastructure projects, and zoning
+                    regulations to forecast impacts on asset values years in advance.</p>
+            </div>
+
+            <div class="operation-card">
+                <div class="operation-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Environmental Mandates</h3>
+                <p>Our intelligence system tracks evolving environmental regulations, green zone designations, and
+                    compliance requirements that affect development potential.</p>
+            </div>
+
+            <div class="operation-card">
+                <div class="operation-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Confidential Intelligence Sourcing</h3>
+                <p>We aggregate and analyze thousands of regulatory data points from public sources, transforming them
+                    into actionable intelligence while maintaining client confidentiality.</p>
+            </div>
+
+            <div class="operation-card">
+                <div class="operation-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3>Spatial Risk Mapping</h3>
+                <p>Our proprietary mapping technology visualizes regulatory risks geographically, providing clear
+                    insights into how policy changes will impact specific locations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="section-title">
+            <h2>Our Values</h2>
+            <p>The principles that guide every engagement</p>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Accuracy</h3>
+                <p>We deliver precision intelligence with verified data sources and rigorous analytical methodologies.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Integrity</h3>
+                <p>Our insights are unbiased and objective, free from external influences or conflicts of interest.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <h3>Discretion</h3>
+                <p>Client confidentiality is paramount. We operate with the highest standards of privacy and discretion.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="section-title">
+            <h2>Our Strategic Leadership</h2>
+            <p>The minds behind our intelligence system</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-portrait">
+                    <div class="portrait-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="cinematic-lighting"></div>
+                </div>
+                <div class="member-info">
+                    <h3>Strategic Leadership</h3>
+                    <div class="member-title">Head of Regulatory Risk</div>
+                    <p class="member-bio">15+ years in policy analysis and regulatory forecasting across multiple
+                        jurisdictions.</p>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-portrait">
+                    <div class="portrait-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="cinematic-lighting"></div>
+                </div>
+                <div class="member-info">
+                    <h3>Technical Excellence</h3>
+                    <div class="member-title">Geo-Spatial Intelligence Lead</div>
+                    <p class="member-bio">Expert in spatial data analysis, mapping technologies, and risk visualization.
+                    </p>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-portrait">
+                    <div class="portrait-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="cinematic-lighting"></div>
+                </div>
+                <div class="member-info">
+                    <h3>Client Strategy</h3>
+                    <div class="member-title">Director of Asset Protection</div>
+                    <p class="member-bio">Specializes in translating intelligence into actionable protection strategies
+                        for high-value assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about-cta">
+        <div class="blueprint-overlay"></div>
+        <div class="cta-content">
+            <h2>Partner with Precision Intelligence</h2>
+            <p>Join our select clientele of asset owners who benefit from our foresight and protection strategies.</p>
+            <button class="cta-btn">
+                <i class="fas fa-handshake"></i>
+                Begin Partnership Discussion
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo">
+                    <div class="logo-icon">MC</div>
+                    <div class="logo-text">Mayalok Corporation</div>
+                </div>
+                <p>Intelligence Protects Wealth. See the Risk Before It Strikes.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-links-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Land Regulation Risk Mapping</a></li>
+                        <li><a href="#">Infrastructure Impact Forecasting</a></li>
+                        <li><a href="#">Compliance Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>All insights based on publicly available regulatory and spatial data. © 2023 Mayalok Corporation. All
+                rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scrolling animations
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animate elements on scroll
+            const animatedElements = document.querySelectorAll('.purpose-statement, .operation-card, .value-card, .team-member');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(element);
+            });
+
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const nav = document.querySelector('nav ul');
+
+            mobileMenu.addEventListener('click', () => {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            });
+
+            // Add cinematic lighting effect to team portraits on hover
+            const portraits = document.querySelectorAll('.member-portrait');
+
+            portraits.forEach(portrait => {
+                portrait.addEventListener('mousemove', (e) => {
+                    const rect = portrait.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+                    const lighting = portrait.querySelector('.cinematic-lighting');
+                    lighting.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(212, 175, 55, 0.3) 0%, transparent 70%)`;
+                });
+
+                portrait.addEventListener('mouseleave', () => {
+                    const lighting = portrait.querySelector('.cinematic-lighting');
+                    lighting.style.background = 'radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.2) 0%, transparent 70%)';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
