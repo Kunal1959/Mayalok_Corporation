@@ -1,6 +1,5 @@
 # Mayalok_Corporation
 Corporation Website
-# RiskFortress — Landing Page Scaffold
 
 This repository contains a minimalist, high-end landing page scaffold for the temporary public-facing brand **RiskFortress** (part of MayaLok Corp). It is designed to convey an ultra-exclusive, confidential B2B service for physical-asset risk prediction.
 
