@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Process Page Specific Styles */
-        
+
         /* Hero Section */
         .process-hero {
             height: 80vh;
@@ -32,11 +32,10 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.1;
-            background-image:
-                linear-gradient(rgba(30, 58, 138, 0.3) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(30, 58, 138, 0.3) 1px, transparent 1px);
-            background-size: 50px 50px;
+            opacity: 0.2;
+            background-image: url('assets/hero-process.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .process-hero-content {
@@ -203,7 +202,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            background-image: url('assets/process-visualize.png');
+            background-size: cover;
+            background-position: center;
             border-radius: 8px;
         }
 
@@ -520,8 +521,9 @@
                     </ul>
                 </div>
 
-                <div class="process-visual">
-                    <div class="visual-container">
+                <div class="process-visual"
+                    style="background-image: url('assets/process-detect.png'); background-size: cover; background-position: center; border-radius: 8px;">
+                    <div class="visual-container" style="background: rgba(10, 17, 29, 0.85);">
                         <div class="central-icon detect-icon pulse">
                             <i class="fas fa-search"></i>
                         </div>
@@ -608,8 +610,9 @@
                     </div>
                 </div>
 
-                <div class="process-visual">
-                    <div class="visual-container">
+                <div class="process-visual"
+                    style="background-image: url('assets/process-prevent.png'); background-size: cover; background-position: center; border-radius: 8px;">
+                    <div class="visual-container" style="background: rgba(10, 17, 29, 0.85);">
                         <div class="central-icon prevent-icon pulse">
                             <i class="fas fa-shield-alt"></i>
                         </div>
