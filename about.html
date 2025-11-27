@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* About Page Specific Styles */
-        
+
         /* Hero Section */
         .about-hero {
             height: 80vh;
@@ -32,8 +32,10 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.7;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            opacity: 0.4;
+            background-image: url('assets/hero-about.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .spotlight {
@@ -286,6 +288,12 @@
             color: var(--gold);
         }
 
+        .portrait-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .cinematic-lighting {
             position: absolute;
             top: 0;
@@ -532,9 +540,7 @@
         <div class="team-grid">
             <div class="team-member">
                 <div class="member-portrait">
-                    <div class="portrait-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    <img src="assets/team-1.png" alt="Head of Regulatory Risk" class="portrait-img">
                     <div class="cinematic-lighting"></div>
                 </div>
                 <div class="member-info">
@@ -547,9 +553,7 @@
 
             <div class="team-member">
                 <div class="member-portrait">
-                    <div class="portrait-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    <img src="assets/team-2.png" alt="Geo-Spatial Intelligence Lead" class="portrait-img">
                     <div class="cinematic-lighting"></div>
                 </div>
                 <div class="member-info">
@@ -562,9 +566,7 @@
 
             <div class="team-member">
                 <div class="member-portrait">
-                    <div class="portrait-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    <img src="assets/team-3.png" alt="Director of Asset Protection" class="portrait-img">
                     <div class="cinematic-lighting"></div>
                 </div>
                 <div class="member-info">
