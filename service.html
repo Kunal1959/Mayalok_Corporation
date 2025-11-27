@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Service Page Specific Styles */
-        
+
         /* Hero Section */
         .services-hero {
             height: 70vh;
@@ -146,13 +146,14 @@
         }
 
         .map-before {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
-            width: 50%;
+            background-image: url('assets/before.png');
+            width: 100%;
             z-index: 2;
+            clip-path: inset(0 50% 0 0);
         }
 
         .map-after {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            background-image: url('assets/after.png');
             z-index: 1;
         }
 
@@ -618,7 +619,7 @@
                 const sliderRect = slider.getBoundingClientRect();
                 let position = (clientX - sliderRect.left) / sliderRect.width;
                 position = Math.max(0, Math.min(1, position));
-                before.style.width = (position * 100) + '%';
+                before.style.clipPath = `inset(0 ${100 - (position * 100)}% 0 0)`;
                 handle.style.left = (position * 100) + '%';
             }
 
