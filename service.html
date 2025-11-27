@@ -32,8 +32,10 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.7;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            opacity: 0.6;
+            background-image: url('assets/hero-services.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .services-hero-content {
@@ -66,8 +68,9 @@
         .service-block {
             display: flex;
             align-items: center;
-            margin-bottom: 8rem;
+            margin-bottom: 4rem;
             position: relative;
+            gap: 2rem;
         }
 
         .service-block:nth-child(even) {
@@ -284,7 +287,9 @@
         .case-visual {
             flex: 1;
             height: 200px;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            background-image: url('assets/case-industrial.png');
+            background-size: cover;
+            background-position: center;
             border-radius: 8px;
             position: relative;
             overflow: hidden;
@@ -345,8 +350,9 @@
         /* Sticky CTA */
         .sticky-cta {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 100;
         }
 
@@ -405,9 +411,21 @@
             }
         }
 
+        .sticky-btn {
+            padding: 0.25rem 1rem;
+            font-weight: 100;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .sticky-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
         @media (max-width: 480px) {
             .services-hero h1 {
                 font-size: 2rem;
+                font-weight: 100;
             }
 
             .service-title {
@@ -460,14 +478,8 @@
             </div>
 
             <div class="service-visual">
-                <div
-                    style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%); display: flex; align-items: center; justify-content: center;">
-                    <div style="text-align: center;">
-                        <i class="fas fa-satellite"
-                            style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;"></i>
-                        <p>Satellite Mapping Visualization</p>
-                    </div>
-                </div>
+                <img src="assets/service-satellite.png" alt="Satellite Mapping Visualization"
+                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
             </div>
         </div>
 
@@ -513,20 +525,8 @@
             </div>
 
             <div class="service-visual">
-                <div
-                    style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%); position: relative;">
-                    <div
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-                                background: radial-gradient(circle at 30% 40%, rgba(227, 49, 49, 0.3) 0%, transparent 50%),
-                                            radial-gradient(circle at 70% 60%, rgba(255, 193, 7, 0.3) 0%, transparent 50%),
-                                            radial-gradient(circle at 50% 20%, rgba(76, 175, 80, 0.2) 0%, transparent 50%);">
-                    </div>
-                    <div
-                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                        <i class="fas fa-road" style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;"></i>
-                        <p>Infrastructure Impact Visualization</p>
-                    </div>
-                </div>
+                <img src="assets/service-infrastructure.png" alt="Infrastructure Impact Visualization"
+                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
             </div>
         </div>
 
@@ -583,14 +583,8 @@
             </div>
 
             <div class="service-visual">
-                <div
-                    style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%); display: flex; align-items: center; justify-content: center;">
-                    <div style="text-align: center;">
-                        <i class="fas fa-file-contract"
-                            style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;"></i>
-                        <p>Compliance Framework Visualization</p>
-                    </div>
-                </div>
+                <img src="assets/service-compliance.png" alt="Compliance Framework Visualization"
+                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
             </div>
         </div>
     </section>
@@ -655,16 +649,16 @@
                 isDragging = false;
             });
 
-            // Parallax effect for service visuals
-            window.addEventListener('scroll', function () {
-                const scrolled = window.pageYOffset;
-                const serviceVisuals = document.querySelectorAll('.service-visual');
-
-                serviceVisuals.forEach(visual => {
-                    const rate = scrolled * -0.2;
-                    visual.style.transform = `translateY(${rate}px)`;
-                });
-            });
+            // Parallax effect for service visuals (Disabled to fix overlap issues)
+            // window.addEventListener('scroll', function () {
+            //     const scrolled = window.pageYOffset;
+            //     const serviceVisuals = document.querySelectorAll('.service-visual');
+            //
+            //     serviceVisuals.forEach(visual => {
+            //         const rate = scrolled * -0.2;
+            //         visual.style.transform = `translateY(${rate}px)`;
+            //     });
+            // });
         });
     </script>
 </body>
