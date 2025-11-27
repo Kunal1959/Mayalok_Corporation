@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Contact Page Specific Styles */
-        
+
         /* Contact Hero Section */
         .contact-hero {
             height: 50vh;
@@ -320,25 +320,25 @@
                 <form id="contact-form">
                     <div class="form-group">
                         <label for="full-name" class="form-label">Full Name</label>
-                        <input type="text" id="full-name" class="form-input" placeholder="Enter your full name"
-                            required>
+                        <input type="text" id="full-name" name="name" class="form-input"
+                            placeholder="Enter your full name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="company" class="form-label">Company Name</label>
-                        <input type="text" id="company" class="form-input" placeholder="Enter your company name"
-                            required>
+                        <input type="text" id="company" name="company" class="form-input"
+                            placeholder="Enter your company name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="asset-location" class="form-label">Asset Address / Location</label>
-                        <input type="text" id="asset-location" class="form-input"
+                        <input type="text" id="asset-location" name="location" class="form-input"
                             placeholder="City, region or specific address" required>
                     </div>
 
                     <div class="form-group">
                         <label for="risk-concern" class="form-label">Primary Risk Concern</label>
-                        <select id="risk-concern" class="form-select" required>
+                        <select id="risk-concern" name="concern" class="form-select" required>
                             <option value="" disabled selected>Select your primary concern</option>
                             <option value="zoning">Zoning & Land Use Regulations</option>
                             <option value="environmental">Environmental Compliance</option>
@@ -351,13 +351,14 @@
 
                     <div class="form-group">
                         <label for="email" class="form-label">Email Address</label>
-                        <input type="email" id="email" class="form-input" placeholder="Enter your business email"
-                            required>
+                        <input type="email" id="email" name="email" class="form-input"
+                            placeholder="Enter your business email" required>
                     </div>
 
                     <div class="form-group">
                         <label for="phone" class="form-label">Secure Phone Number</label>
-                        <input type="tel" id="phone" class="form-input" placeholder="Enter your contact number">
+                        <input type="tel" id="phone" name="phone" class="form-input"
+                            placeholder="Enter your contact number">
                     </div>
 
                     <button type="submit" class="contact-cta">
@@ -405,40 +406,64 @@
             contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
 
-                // Get form values
-                const name = document.getElementById('full-name').value;
-                const company = document.getElementById('company').value;
-                const location = document.getElementById('asset-location').value;
-                const concern = document.getElementById('risk-concern').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
-
-                // In a real implementation, you would send this data to a server
-                // For this example, we'll just show a confirmation
-
-                // Create a secure submission confirmation
                 const submitBtn = contactForm.querySelector('.contact-cta');
                 const originalText = submitBtn.innerHTML;
 
+                // Loading state
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Securing Submission...';
                 submitBtn.disabled = true;
 
-                // Simulate secure submission
-                setTimeout(() => {
-                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Submission Secured';
-                    submitBtn.style.background = 'var(--green)';
+                const formData = new FormData(contactForm);
 
-                    // Show confirmation message
-                    alert(`Thank you ${name}. Your private briefing request has been securely submitted. Our Strategy Office will contact you within 12 hours.`);
+                // ---------------------------------------------------------
+                // IMPORTANT: REPLACE THIS URL WITH YOUR OWN FORMSPREE ENDPOINT
+                // 1. Go to https://formspree.io/
+                // 2. Create a new form
+                // 3. Copy the "Form Endpoint" URL
+                // 4. Paste it below
+                // ---------------------------------------------------------
+                const FORMSPREE_ENDPOINT = 'https://formspree.io/f/movoevqd';
 
-                    // Reset form after a delay
-                    setTimeout(() => {
+                fetch(FORMSPREE_ENDPOINT, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        // Success logic
+                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Submission Secured';
+                        submitBtn.style.background = 'var(--green)';
+
+                        // Get name for personalization
+                        const name = document.getElementById('full-name').value;
+                        alert(`Thank you ${name}. Your private briefing request has been securely submitted. Our Strategy Office will contact you within 12 hours.`);
+
                         contactForm.reset();
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.style.background = 'var(--gold)';
+                            submitBtn.disabled = false;
+                        }, 3000);
+                    } else {
+                        // Error logic
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                alert(data["errors"].map(error => error["message"]).join(", "));
+                            } else {
+                                alert("Oops! There was a problem submitting your form");
+                            }
+                        });
                         submitBtn.innerHTML = originalText;
-                        submitBtn.style.background = 'var(--gold)';
                         submitBtn.disabled = false;
-                    }, 3000);
-                }, 2000);
+                    }
+                }).catch(error => {
+                    // Network error
+                    alert("Oops! There was a problem submitting your form");
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
             });
 
             // WhatsApp CTA interaction
